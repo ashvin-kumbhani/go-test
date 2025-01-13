@@ -57,7 +57,7 @@ This project is a microservice-based system for processing, storing, and retriev
 
 ### Environment Variables
 
-Ensure the following environment variables are set in the services:
+Ensure the following environment variables are set in the services(These are hardcoded this for now):
 
 - `POSTGRES_USER`: PostgreSQL username.
 - `POSTGRES_PASSWORD`: PostgreSQL password.
