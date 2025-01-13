@@ -169,7 +169,7 @@ docker-compose up --build
 ### Step 2: Test Upload Endpoint
 
 ```bash
-curl -F "file=@users.csv" http://localhost:3000/upload
+curl -F "file=@users.csv" http://localhost:3002/upload
 ```
 
 ### Step 3: Test Fetch Users Endpoint
