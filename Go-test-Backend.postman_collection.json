@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "f3f57beb-e4f7-4f47-a76c-03811a6ff453",
+		"name": "Go-test:Backend",
+		"description": "API documentation for Producer, Consumer, and API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37292919"
+	},
+	"item": [
+		{
+			"name": "upload",
+			"item": [
+				{
+					"name": "Upload CSV File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "The CSV file to upload",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/upload",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"upload"
+							]
+						},
+						"description": "Uploads a CSV file and sends its content to RabbitMQ."
+					},
+					"response": [
+						{
+							"name": "File successfully processed and sent to RabbitMQ.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"description": "The CSV file to upload",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"upload"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Invalid file upload.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"description": "The CSV file to upload",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"upload"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Retrieve Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users?first_name=<string>&last_name=<string>&created_at=<integer>&page=1&page_size=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "first_name",
+									"value": "<string>",
+									"description": "Filter by first name"
+								},
+								{
+									"key": "last_name",
+									"value": "<string>",
+									"description": "Filter by last name"
+								},
+								{
+									"key": "created_at",
+									"value": "<integer>",
+									"description": "Filter by creation time (greater than or equal to)"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Page number for pagination"
+								},
+								{
+									"key": "page_size",
+									"value": "10",
+									"description": "Number of items per page"
+								}
+							]
+						},
+						"description": "Retrieve user data with optional filters and pagination."
+					},
+					"response": [
+						{
+							"name": "A list of users.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users?first_name=<string>&last_name=<string>&created_at=<integer>&page=1&page_size=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "first_name",
+											"value": "<string>",
+											"description": "Filter by first name"
+										},
+										{
+											"key": "last_name",
+											"value": "<string>",
+											"description": "Filter by last name"
+										},
+										{
+											"key": "created_at",
+											"value": "<integer>",
+											"description": "Filter by creation time (greater than or equal to)"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Page number for pagination"
+										},
+										{
+											"key": "page_size",
+											"value": "10",
+											"description": "Number of items per page"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"page\": \"<integer>\",\n  \"page_size\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"email_address\": \"<string>\",\n      \"created_at\": \"<integer>\",\n      \"deleted_at\": \"<integer>\",\n      \"merged_at\": \"<integer>\",\n      \"parent_user_id\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"email_address\": \"<string>\",\n      \"created_at\": \"<integer>\",\n      \"deleted_at\": \"<integer>\",\n      \"merged_at\": \"<integer>\",\n      \"parent_user_id\": \"<integer>\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		}
+	]
+}

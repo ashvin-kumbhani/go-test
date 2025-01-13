@@ -1,0 +1,19 @@
+FROM golang:1.23-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy files
+COPY . .
+
+# Download dependencies
+RUN go mod tidy
+
+# Build the API binary
+RUN go build -o main main.go db.go
+
+# Expose the API port
+EXPOSE 3001
+
+# Command to run the uploader
+CMD ["./main"]

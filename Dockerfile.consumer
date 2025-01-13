@@ -1,0 +1,16 @@
+FROM golang:1.23-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy files
+COPY . .
+
+# Download dependencies
+RUN go mod tidy
+
+# Build the Consumer binary
+RUN go build -o consumer consumer.go db.go
+
+# Command to run the Consumer
+CMD ["./consumer"]

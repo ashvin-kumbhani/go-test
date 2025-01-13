@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-time User Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    #userList {
+      margin-top: 20px;
+    }
+
+    .user {
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Real-time User Updates</h1>
+  <div id="userList"></div>
+
+  <script>
+    // Create a new EventSource to listen for SSE messages
+    const eventSource = new EventSource('/events');
+
+    // Handle incoming messages
+    eventSource.onmessage = function (event) {
+      const user = JSON.parse(event.data);
+
+      // Create a new user card
+      const userCard = document.createElement('div');
+      userCard.classList.add('user');
+
+      userCard.innerHTML = `
+                <strong>${user.first_name} ${user.last_name}</strong><br>
+                Email: ${user.email}<br>
+                Created At: ${new Date(user.created_at * 1000).toLocaleString()}
+            `;
+
+      // Append the user card to the user list
+      document.getElementById('userList').prepend(userCard);
+    };
+
+    // Handle SSE connection errors
+    eventSource.onerror = function (error) {
+      console.error('Error with SSE connection:', error);
+    };
+  </script>
+</body>
+
+</html>
