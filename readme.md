@@ -57,11 +57,15 @@ This project is a microservice-based system for processing, storing, and retriev
 
 ### Environment Variables
 
-Ensure the following environment variables are set in the services:
+Ensure the following environment variables are set in the services(These are hardcoded in code for now):
 
 - `POSTGRES_USER`: PostgreSQL username.
 - `POSTGRES_PASSWORD`: PostgreSQL password.
 - `POSTGRES_DB`: Database name.
+- `REDIS_USER`: REDIS username.
+- `REDIS_PASSWORD`: REDIS password.
+- `RABBITMQ_USER`: RABBITMQ username.
+- `RABBITMQ_PASSWORD`: RABBITMQ password.
 
 ---
 
