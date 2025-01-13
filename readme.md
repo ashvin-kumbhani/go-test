@@ -57,15 +57,11 @@ This project is a microservice-based system for processing, storing, and retriev
 
 ### Environment Variables
 
-Ensure the following environment variables are set in the services(These are hardcoded in code for now):
+Ensure the following environment variables are set in the services:
 
 - `POSTGRES_USER`: PostgreSQL username.
 - `POSTGRES_PASSWORD`: PostgreSQL password.
 - `POSTGRES_DB`: Database name.
-- `REDIS_USER`: REDIS username.
-- `REDIS_PASSWORD`: REDIS password.
-- `RABBITMQ_USER`: RABBITMQ username.
-- `RABBITMQ_PASSWORD`: RABBITMQ password.
 
 ---
 
@@ -87,11 +83,19 @@ docker-compose up --build
 ### 3. Access Services
 
 - API Service: [http://localhost:3001](http://localhost:3001)
+- Producer Service: [http://localhost:3002](http://localhost:3002)
+- Consumer Service: [http://localhost:3000](http://localhost:3000)
+- Web Service: [http://localhost:8080](http://localhost:8080)
+- PostgreSQL: [http://localhost:5432](http://localhost:5432)
+- Redis: [http://localhost:6379](http://localhost:6379)
+- RabbitMQ: [http://localhost:5672](http://localhost:5672)
 - RabbitMQ Management UI: [http://localhost:15672](http://localhost:15672) (Username: `guest`, Password: `guest`)
 
 ---
 
 ## API Endpoints
+
+- You can import and use [postman collection](https://github.com/ashvin-kumbhani/go-test/blob/main/Go-test-Backend.postman_collection.json) for detailed api documentation.
 
 ### 1. Upload CSV
 
