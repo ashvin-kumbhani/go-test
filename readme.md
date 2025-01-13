@@ -74,8 +74,8 @@ Ensure the following environment variables are set in the services(These are har
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-directory>
+git clone https://github.com/ashvin-kumbhani/go-test
+cd go-test
 ```
 
 ### 2. Build and Start the Docker Containers
