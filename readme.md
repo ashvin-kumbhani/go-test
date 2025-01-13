@@ -62,6 +62,10 @@ Ensure the following environment variables are set in the services:
 - `POSTGRES_USER`: PostgreSQL username.
 - `POSTGRES_PASSWORD`: PostgreSQL password.
 - `POSTGRES_DB`: Database name.
+- `REDIS_USER`: PostgreSQL username.
+- `REDIS_PASSWORD`: PostgreSQL password.
+- `REBBITMQ_USER`: PostgreSQL username.
+- `REBBITMQ_PASSWORD`: PostgreSQL password.
 
 ---
 
